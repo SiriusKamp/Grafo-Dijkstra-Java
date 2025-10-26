@@ -14,5 +14,26 @@ public class Main {
                 System.out.println(" -> " + vizinho.getNome() + " (peso: " + peso + ")")
             );
         }
+
+        DijkstraMap dijkstra = new DijkstraMap();
+
+Runtime runtime = Runtime.getRuntime();
+runtime.gc(); // força o garbage collector pra limpar antes da medição
+
+long memoriaAntes = runtime.totalMemory() - runtime.freeMemory();
+
+long inicio = System.nanoTime();
+dijkstra.buscarCaminho("100", "1", grafo);
+long fim = System.nanoTime();
+
+long memoriaDepois = runtime.totalMemory() - runtime.freeMemory();
+long memoriaUsada = (memoriaDepois - memoriaAntes) / (1024 * 1024); // em MB
+
+double tempoSegundos = (fim - inicio) / 1_000_000_000.0;
+
+System.out.printf("⏱️ Tempo: %.6f segundos%n", tempoSegundos);
+System.out.printf("💾 Memória usada: %d MB%n", memoriaUsada);
+
+
     }
 }

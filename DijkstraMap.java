@@ -41,10 +41,10 @@ public class DijkstraMap {
             }
         }
 
-        // Exibe as distâncias encontradas
-        for (Map.Entry<String, Integer> d : distancias.entrySet()) {
-            System.out.println("Distância de " + inicial.getNome() + " até " + d.getKey() + " = " + d.getValue());
-        }
+        // // Exibe as distâncias encontradas
+        // for (Map.Entry<String, Integer> d : distancias.entrySet()) {
+        //     System.out.println("Distância de " + inicial.getNome() + " até " + d.getKey() + " = " + d.getValue());
+        // }
     }
 
     public void buscarCaminho(String nomeDestino, String nomeInicial, Map<String, No> grafo) {
@@ -91,7 +91,7 @@ public class DijkstraMap {
         System.out.println("   → Custo total: " + custoTotal);
         System.out.println("   → Caminho:");
         for (String nome : caminho) {
-            System.out.println("     → " + nome);
+            System.out.println("->      " + nome);
         }
     }
 }
